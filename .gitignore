@@ -1,0 +1,26 @@
+# Java / Maven
+target/
+*.class
+*.jar
+!**/.mvn/wrapper/maven-wrapper.jar
+
+# Node / Vite
+node_modules/
+dist/
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# Ambiente (segredos nunca vão pro git)
+.env
+.env.*
+!.env.example
+
+# SO
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
