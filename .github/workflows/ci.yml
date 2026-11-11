@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  # O nome do job vira o "check" do PR; a proteção da main vai exigir que ele fique verde.
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      # Mesmo comando que você roda no PC; o Testcontainers usa o Docker que já vem no runner.
+      - run: ./mvnw -B verify
