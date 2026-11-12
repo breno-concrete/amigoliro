@@ -23,7 +23,7 @@ public class Sorteador {
         Set<UUID> jaRecebeu = new HashSet<>();
 
         if (!escolherAmigo(0, resultado, jaRecebeu, listaCopia, exclusoes)) {
-            throw new IllegalStateException("O Sorteio não é possível logicamente: um usuário permanece sem dupla");
+            throw new SorteioImpossivelException();
         }
         return resultado;
     }
